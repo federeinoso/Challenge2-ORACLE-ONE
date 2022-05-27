@@ -226,7 +226,7 @@ saveBtn.addEventListener("click", () => {
 let cancelBtn = document.getElementById("cancelBtn");
 
 cancelBtn.addEventListener("click", () => {
-  document.location.href = "/";
+  window.location.href = "https://federeinoso.github.io/Challenge2-ORACLE-ONE/";
 });
 
 //HOME PAGE
@@ -256,5 +256,5 @@ startGameBtn.addEventListener("click", () => {
 let logo = document.getElementById("logo");
 
 logo.addEventListener("click", () => {
-  window.location = "/";
+  window.location.href = "https://federeinoso.github.io/Challenge2-ORACLE-ONE/";
 });
