@@ -260,4 +260,4 @@ logo.addEventListener("click", () => {
 });
 
 //REDIRECT
-let going = "https://federeinoso.github.io/Challenge2-ORACLE-ONE/index.html";
+let going = "/";
