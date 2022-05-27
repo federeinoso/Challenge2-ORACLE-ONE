@@ -256,5 +256,5 @@ startGameBtn.addEventListener("click", () => {
 let logo = document.getElementById("logo");
 
 logo.addEventListener("click", () => {
-  document.location.href = "/";
+  window.location.replace("/");
 });
