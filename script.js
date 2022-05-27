@@ -185,7 +185,7 @@ function keyword() {
 let desistirBtn = document.getElementById("desistirBtn");
 
 desistirBtn.addEventListener("click", () => {
-  document.location.href = "/";
+  window.location.replace(going);
 });
 
 //NEW GAME BTN
@@ -260,4 +260,4 @@ logo.addEventListener("click", () => {
 });
 
 //REDIRECT
-let going = "https://federeinoso.github.io/Challenge2-ORACLE-ONE/";
+let going = "https://federeinoso.github.io/Challenge2-ORACLE-ONE/index.html";
