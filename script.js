@@ -1,8 +1,11 @@
+//CANVAS AND DISPLAY
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 let GAME_DISPLAY = document.getElementById("game-container");
 let ADD_WORD_DISPLAY = document.getElementById("add-word");
 let HOME_PAGE = document.getElementById("homePage");
+
+//BODY
 
 ctx.lineWidth = 4;
 ctx.strokeStyle = "#0A3871";
@@ -28,9 +31,20 @@ ctx.lineTo(229, 60);
 ctx.stroke();
 ctx.closePath();
 
-//THE GAME
+//WORDS
 
-let options = ["tener", "caracol"];
+let options = [
+  "tener",
+  "caracol",
+  "perro",
+  "camion",
+  "comer",
+  "tenedor",
+  "web",
+  "internet",
+];
+
+//VARIABLES
 
 const words = document.getElementById("words");
 const wrongContainer = document.getElementById("wrong-letters");
@@ -58,6 +72,7 @@ function displayWord() {
         `
     )
     .join(" ")}`;
+  document.body.style.backgroundColor = "#f3f5fc";
   const innerWord = container.innerText.replace(/\n/g, "");
 
   if (innerWord === selectedWord.toUpperCase()) {
@@ -69,7 +84,6 @@ function displayWord() {
 //UPDATE WRONG LETTERS
 function upgradeWrongLetters() {
   const innerWord = container.innerText.replace(/\n/g, "");
-
   if (innerWord === selectedWord.toUpperCase()) {
     document.body.style.backgroundColor = "rgba(50,168,82, 0.5)";
     return;
@@ -86,6 +100,7 @@ function upgradeWrongLetters() {
         : ""
     }
     `;
+
     //Display parts
     const errors = wrongLetters.length;
 
@@ -139,39 +154,41 @@ function upgradeWrongLetters() {
   }
 }
 
-//KEYBOARD WORDS
+//KEYBOARD LISTENER
 function keyword() {
   window.addEventListener("keydown", (e) => {
-    if (e.keyCode >= 65 && e.keyCode <= 90) {
-      const letter = e.key;
+    if (wrongLetters.length === 6) {
+      return;
+    } else {
+      if (e.keyCode >= 65 && e.keyCode <= 90) {
+        const letter = e.key;
 
-      if (selectedWord.includes(letter)) {
-        if (!correctLetters.includes(letter)) {
-          correctLetters.push(letter);
+        if (selectedWord.includes(letter)) {
+          if (!correctLetters.includes(letter)) {
+            correctLetters.push(letter);
 
-          displayWord();
-        }
-      } else {
-        if (!wrongLetters.includes(letter)) {
-          wrongLetters.push(letter);
+            displayWord();
+          }
+        } else {
+          if (!wrongLetters.includes(letter)) {
+            wrongLetters.push(letter);
 
-          upgradeWrongLetters();
+            upgradeWrongLetters();
+          }
         }
       }
     }
   });
 }
 
-//DESISTIR BTN
-
+//DESIST BTN
 let desistirBtn = document.getElementById("desistirBtn");
 
 desistirBtn.addEventListener("click", () => {
   document.location.href = "/";
 });
 
-//NUEVO JUEGO BTN
-
+//NEW GAME BTN
 let newGameBtn = document.getElementById("newGameBtn");
 
 newGameBtn.addEventListener("click", () => {
@@ -184,8 +201,8 @@ newGameBtn.addEventListener("click", () => {
   displayWord();
 });
 
-//ADD NEW WORD
-//Save and start
+//ADD NEW WORD PAGE
+//SAVE AND START BTN
 const regex = /[^a-z ]/;
 
 let saveBtn = document.getElementById("saveBtn");
@@ -205,8 +222,7 @@ saveBtn.addEventListener("click", () => {
   }
 });
 
-//Cancelar btn
-
+//CANCEL BTN
 let cancelBtn = document.getElementById("cancelBtn");
 
 cancelBtn.addEventListener("click", () => {
@@ -214,7 +230,7 @@ cancelBtn.addEventListener("click", () => {
 });
 
 //HOME PAGE
-
+//ADD BTN
 let addBtn = document.getElementById("addBtn");
 
 addBtn.addEventListener("click", () => {
@@ -224,6 +240,7 @@ addBtn.addEventListener("click", () => {
   ADD_WORD_DISPLAY.classList.add("flex");
 });
 
+//START BTN
 let startGameBtn = document.getElementById("startGameBtn");
 
 startGameBtn.addEventListener("click", () => {
@@ -235,8 +252,7 @@ startGameBtn.addEventListener("click", () => {
   upgradeWrongLetters();
 });
 
-//logo
-
+//LOGO
 let logo = document.getElementById("logo");
 
 logo.addEventListener("click", () => {
