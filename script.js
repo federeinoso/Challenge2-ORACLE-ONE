@@ -260,4 +260,4 @@ logo.addEventListener("click", () => {
 });
 
 //REDIRECT
-let going = "/Challenge2-ORACLE-ONE/index.html";
+let going = "/Challenge2-ORACLE-ONE/";
